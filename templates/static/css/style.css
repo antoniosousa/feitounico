@@ -1,0 +1,201 @@
+.carousel-img {
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.search-icon-btn {
+  background-color: #ffc107;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cart-icon-btn {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px; 
+  width: 38px;  
+  line-height: 1; /* Evita esticar altura */
+}
+
+.cart-icon-btn i.bi-cart {
+  font-size: 1.8rem; 
+  color: #380404;
+  line-height: 1;
+}
+
+form input[type="search"] {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Navbar container flex */
+.navbar .container {
+  display: flex;       /* importante */
+  flex-wrap: wrap;
+  align-items: center; /* ajuda no alinhamento vertical */
+}
+
+/* Navbar nav flex */
+.navbar-nav {
+  display: flex;       /* importante */
+  flex-wrap: wrap;
+  gap: 0.5rem;         /* espaço entre links */
+  margin-bottom: 0;
+}
+
+/* Form da busca */
+form.d-flex {
+  display: flex;      /* garantir flex */
+  flex-wrap: nowrap;  /* não quebra por padrão */
+  min-width: 0;
+  max-width: 400px;
+  margin: 0 1rem;
+}
+
+
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* força proporção quadrada */
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+
+@media (max-width: 576px) {
+  .custom-icon-btn {
+    padding: 0.4rem;
+  }
+  .carousel-img {
+    max-height: 250px;
+  }
+  /* Botões na navbar responsivos */
+  .navbar .d-flex.ms-3 {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  form.d-flex {
+    width: 100%;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;   /* permite input e botão quebrarem linha */
+  }
+}
+
+
+
+
+/* LISTAGEM DE PRODUTOS */
+
+.price {
+  margin-top: auto;
+  font-weight: 600;
+}
+
+.price .currency {
+  font-size: 1.0rem;   /* menor */
+  vertical-align: top;
+  margin-right: 2px;
+}
+
+.price .amount {
+  font-size: 1.4rem;   /* maior */
+  color: #1e568f;     
+}
+
+/* PRODUTO */
+
+.product-price{
+  font-weight: 600;
+}
+
+.product-price .product-currency{
+  font-size: 1.2rem;
+  vertical-align: top;
+  margin-right: 2px;
+}
+
+.product-price .product-amount{
+  font-size: 2.0rem;
+
+}
+
+.installments {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #1c73bf; 
+}
+
+.btn-addcart-custom-width{
+  width: 210px;    
+}
+
+.btn-buy-custom-width{
+  width: 210px;
+}
+
+
+
+
+
+/* Estilo das estrelas */
+.card .bi-star-fill,
+.card .bi-star-half,
+.card .bi-star {
+  font-size: 1rem;
+  color: #ffc107; /* amarelo */
+}
+
+
+.no-description .price{
+  margin-top: 0;
+}
+
+
+/*
+.row {
+  border: 1px dashed red;
+}
+
+.col-md-4 {
+  border: 1px dotted blue;
+}
+
+/* Animação suave no dropdown */
+.animated-dropdown {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  display: block !important;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Ativar animação quando o menu está visível */
+.animated-dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+.buyer-img {
+  width: 80px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+}
