@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+  <!-- Barra de Navegação -->
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <div class="container d-flex flex-wrap align-items-center">
+      <!-- Logo -->
+      <a class="navbar-brand me-3" href="#">
+        <img src="{% static '/images/logo/logo.png' %}" alt="Logo" width="50" height="50" />
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-wrap">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Início</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Categorias
+          </a>
+          <ul class="dropdown-menu animated-dropdown" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Crochê e Tricô</a></li>
+            <li><a class="dropdown-item" href="#">Bordado e Costura</a></li>
+            <li><a class="dropdown-item" href="#">Artesanato em Madeira</a></li>
+            <li><a class="dropdown-item" href="#">Papelaria Criativa</a></li>
+            <li><a class="dropdown-item" href="#">Artesanato em Feltro</a></li>
+            <li><a class="dropdown-item" href="#">Bijuterias e Acessórios</a></li>
+            <li><a class="dropdown-item" href="#">Artesanato Sustentável</a></li>
+            <li><a class="dropdown-item" href="#">Cerâmica e Argila</a></li>
+            <li><a class="dropdown-item" href="#">Velas e Sabonetes Artesanais</a></li>
+            <li><a class="dropdown-item" href="#">Pintura Decorativa</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ofertas</a>
+        </li>
+      </ul>
+      <!-- Área de Busca -->
+      <form class="d-flex flex-grow-1 mx-3 my-2 my-lg-0" style="max-width: 800px;">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Eu desejo..."
+          aria-label="Search"
+        />
+        <!-- Botão Pesquisar-->
+        <button class="btn search-icon-btn" type="submit" aria-label="Buscar">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+      <!-- Botões Cadastrar e Entrar -->
+      <div class="d-flex ms-3 flex-wrap">
+        <a href="#" class="btn btn-outline-warning me-2 mb-2 mb-lg-0">Criar Conta</a>
+        <a href="#" class="btn btn-warning mb-2 mb-lg-0">Entrar</a>
+        <!-- Botão Carrinho -->
+        <button class="cart-icon-btn ms-2 mb-2 mb-lg-0" aria-label="Carrinho">
+          <i class="bi bi-cart"></i>
+        </button>
+      </div>
+    </div>
+  </nav>   
+
+
+  <div class="container mt-4">
+    <div class="row align-items-start">
+      <div class="col-md-6">
+        <!-- Imagem principal do produto -->
+        <img id="main-product-image" src="{%/images/produto/produto.webp%}" class="img-fluid border rounded main-product-img " style="max-width: 100%; cursor: pointer;" alt="Produto">
+
+        <!-- Imagens extras -->
+        <div class="d-flex justify-content-left flex-wrap gap-3 mt-3">
+            <img src="{% static '/images/produto/produto2.webp'%}" class="img-thumbnail" style="width: 80px; aspect-ratio: 1/1; object-fit: cover; cursor: pointer;"onclick="trocarImagem(this.src)" alt="Produto extra 1">
+            <img src="{% static '/images/produto/produto3.webp'%}" class="img-thumbnail" style="width: 80px; aspect-ratio: 1/1; object-fit: cover; cursor: pointer;"onclick="trocarImagem(this.src)" alt="Produto extra 2">
+            <img src="{% static '/images/produto/produto.webp'%}"  class="img-thumbnail" style="width: 80px; aspect-ratio: 1/1; object-fit: cover; cursor: pointer;"onclick="trocarImagem(this.src)" alt="Produto extra 3">
+            <img src="{% static '/images/produto/produto2.webp'%}" class="img-thumbnail" style="width: 80px; aspect-ratio: 1/1; object-fit: cover; cursor: pointer;"onclick="trocarImagem(this.src)" alt="Produto extra 4">
+            <img src="{% static '/images/produto/produto3.webp'%}" class="img-thumbnail" style="width: 80px; aspect-ratio: 1/1; object-fit: cover; cursor: pointer;"onclick="trocarImagem(this.src)" alt="Produto extra 5">
+        </div>
+      </div>
+
+      
+      <div class="col-md-6">
+        <!-- Título do produto -->
+        <h3 class="fw-bold">Vaso Porcelana Chinesa Artesanal</h3>
+
+        <hr class="flex-grow-1 ms-1 my-4">
+
+        <div class="mt-5">
+          <p class="product-price">
+            <span class="product-currency">R$</span>
+            <span class="product-amount">143,00</span>
+          </p>
+          <p class="text-muted">em 12x de R$12,29</p>
+          <p class="installments btn btn-link" style="cursor: pointer;">ver formas de pagamento</p>
+
+          <hr class="flex-grow-1 ms-0 my-0">
+
+
+          <!-- Mensagem de sucesso ao adicionar um item ao carrinho -->
+          <div id="alert-container" class="mt-3" style="display: none;">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              Produto adicionado ao carrinho com sucesso!
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+            </div>
+          </div>
+          
+          <div class="mt-4 d-flex flex-column align-items-start gap-3">
+            <button id="addToCartBtn" class=" btn btn-outline-primary px-4 btn-addcart-custom-width">Adicionar ao Carrinho</button>
+            <button class="btn btn-success px-4 btn-buy-custom-width">Comprar Agora</button>
+          </div>
+
+
+          <!-- Descrição técnica do produto -->
+          <div class="mt-5">
+            <h5 class="mb-3">Descrição do Produto</h5>
+            <table class="table table-borderless w-auto">
+              <tbody>
+                <tr>
+                  <th scope="row" class="text-muted">Dimensões</th>
+                  <td>50cm x 20cm</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-muted">Peso</th>
+                  <td>1,2 kg</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-muted">Material</th>
+                  <td>Porcelana</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-muted">Número de Peças</th>
+                  <td>1 unidade</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="text-muted">Cor</th>
+                  <td>Branco, com detalhes em azul e dourado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>       
+      </div> 
+      
+      <hr class="flex-grow-1 ms-1 mt-4">
+      
+      <!-- Avaliações -->
+      <div class="container mt-5">
+        <h3 class="mb-4">Avaliações</h3>
+
+        <!-- Avaliação individual -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <!-- Foto + nome -->
+            <div class="d-flex align-items-center mb-2">
+              <!-- Adicionar imagem do usuário -->
+              <!--<img src="" alt="Usuário" class="rounded-circle me-3" width="50" height="50">!-->
+              <i class="bi bi-person "></i>
+              <h6 class="mb-0">Usuário</h6>
+            </div>
+
+            <!-- Estrelas -->
+            <div class="mb-2 text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+              <span class="text-muted small ms-2">(4 de 5)</span>
+            </div>
+
+            <!-- Texto da avaliação -->
+            <p class="mb-3">
+              O vaso é lindo! O acabamento é perfeito e chegou bem embalado. A entrega foi mais rápida do que o esperado.
+            </p>
+
+            <!-- Imagens do produto do comprador -->
+            <div class="d-flex gap-3">
+              <img src="./images/produto/produto2.webp" alt="Imagem do comprador" class="img-fluid rounded buyer-img" style="width: 80px; height: 80px; object-fit: cover;">
+              <img src="./images/produto/produto.webp" alt="Imagem do comprador" class="img-fluid rounded buyer-img" style="width: 80px; height: 80px; object-fit: cover;">
+              <img src="./images/produto/produto3.webp" alt="Imagem do comprador" class="img-fluid rounded buyer-img" style="width: 80px; height: 80px; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox (imagem ampliada) -->
+  <div id="lightbox" class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 d-flex justify-content-center align-items-center" style="z-index: 1050;">
+    <img id="lightbox-img" src="" class="img-fluid rounded" style="max-height: 90vh;">
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./javascript/script.js"></script>
+</body>
+</html>
